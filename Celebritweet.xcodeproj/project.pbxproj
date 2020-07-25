@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E874C88924CB64B800DE9301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C88824CB64B800DE9301 /* AppDelegate.swift */; };
-		E874C88B24CB64B800DE9301 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C88A24CB64B800DE9301 /* ViewController.swift */; };
+		E874C88B24CB64B800DE9301 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C88A24CB64B800DE9301 /* DisplayViewController.swift */; };
 		E874C88D24CB64B900DE9301 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E874C88C24CB64B900DE9301 /* Assets.xcassets */; };
 		E874C89024CB64B900DE9301 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E874C88E24CB64B900DE9301 /* Main.storyboard */; };
 		E874C89C24CB64BA00DE9301 /* CelebritweetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C89B24CB64BA00DE9301 /* CelebritweetTests.swift */; };
 		E874C8A724CB64BA00DE9301 /* CelebritweetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8A624CB64BA00DE9301 /* CelebritweetUITests.swift */; };
+		E874C8BB24CB91FE00DE9301 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */; };
+		E874C8BD24CBB8AD00DE9301 /* NSImage + tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,7 @@
 /* Begin PBXFileReference section */
 		E874C88524CB64B800DE9301 /* Celebritweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Celebritweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E874C88824CB64B800DE9301 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E874C88A24CB64B800DE9301 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E874C88A24CB64B800DE9301 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		E874C88C24CB64B900DE9301 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E874C88F24CB64B900DE9301 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E874C89124CB64BA00DE9301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		E874C8A224CB64BA00DE9301 /* CelebritweetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CelebritweetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E874C8A624CB64BA00DE9301 /* CelebritweetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebritweetUITests.swift; sourceTree = "<group>"; };
 		E874C8A824CB64BA00DE9301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
+		E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage + tweets.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,13 @@
 			isa = PBXGroup;
 			children = (
 				E874C88824CB64B800DE9301 /* AppDelegate.swift */,
-				E874C88A24CB64B800DE9301 /* ViewController.swift */,
+				E874C88A24CB64B800DE9301 /* DisplayViewController.swift */,
 				E874C88C24CB64B900DE9301 /* Assets.xcassets */,
 				E874C88E24CB64B900DE9301 /* Main.storyboard */,
 				E874C89124CB64BA00DE9301 /* Info.plist */,
 				E874C89224CB64BA00DE9301 /* Celebritweet.entitlements */,
+				E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */,
+				E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */,
 			);
 			path = Celebritweet;
 			sourceTree = "<group>";
@@ -254,7 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E874C88B24CB64B800DE9301 /* ViewController.swift in Sources */,
+				E874C88B24CB64B800DE9301 /* DisplayViewController.swift in Sources */,
+				E874C8BB24CB91FE00DE9301 /* ControlsViewController.swift in Sources */,
+				E874C8BD24CBB8AD00DE9301 /* NSImage + tweets.swift in Sources */,
 				E874C88924CB64B800DE9301 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
