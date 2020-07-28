@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSImageDelegate {
     
     @IBOutlet var imageStackView: NSStackView!
     @IBOutlet var tweetOne: NSImageView!
@@ -16,9 +16,11 @@ class ViewController: NSViewController {
     
     
     override func viewWillAppear() {
-        
+        super.viewWillAppear()
+        tweetOne.image?.delegate = self
+        tweetTwo.image?.delegate = self
     }
-    
+    //MARK: Layout View -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
@@ -75,6 +77,9 @@ class ViewController: NSViewController {
         destinationVC.celebTweetOne = tweetOne
         destinationVC.celebTweetTwo = tweetTwo
         
+    }
+    func imageDidNotDraw(_ sender: NSImage, in rect: NSRect) -> NSImage? {
+        return NSImage(resource: .aoc)
     }
     
 }

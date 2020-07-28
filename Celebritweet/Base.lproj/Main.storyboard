@@ -757,41 +757,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-5V-K0F">
-                                <rect key="frame" x="21" y="78" width="408" height="45"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="37" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CL3-rE-8yY">
+                                <rect key="frame" x="21" y="49" width="408" height="103"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TV-uL-tj3">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="45"/>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-5V-K0F">
+                                        <rect key="frame" x="0.0" y="58" width="408" height="45"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zFT-am-B6r">
-                                                <rect key="frame" x="66" y="29" width="69" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Celebrity 1" id="sJQ-eV-mbp">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mFf-55-7Nz">
-                                                <rect key="frame" x="-2" y="-3" width="205" height="25"/>
-                                                <popUpButtonCell key="cell" type="push" title="AOC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2o2-cC-fea" id="z1Y-pB-n7Z">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                    <menu key="menu" id="Dlw-x5-izh">
-                                                        <items>
-                                                            <menuItem title="AOC" state="on" id="2o2-cC-fea"/>
-                                                            <menuItem title="Item 2" id="OGz-1L-xCt"/>
-                                                            <menuItem title="Item 3" id="qkE-e8-dCf"/>
-                                                        </items>
-                                                    </menu>
-                                                </popUpButtonCell>
-                                                <connections>
-                                                    <action selector="celebOneAction:" target="9oV-2f-noz" id="POl-K7-6bC"/>
-                                                </connections>
-                                            </popUpButton>
+                                            <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TV-uL-tj3">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="45"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zFT-am-B6r">
+                                                        <rect key="frame" x="66" y="29" width="69" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Celebrity 1" id="sJQ-eV-mbp">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mFf-55-7Nz">
+                                                        <rect key="frame" x="-2" y="-3" width="205" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="AOC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2o2-cC-fea" id="z1Y-pB-n7Z">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <menu key="menu" id="Dlw-x5-izh">
+                                                                <items>
+                                                                    <menuItem title="AOC" state="on" id="2o2-cC-fea"/>
+                                                                    <menuItem title="Item 2" id="OGz-1L-xCt"/>
+                                                                    <menuItem title="Item 3" id="qkE-e8-dCf"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="celebOneAction:" target="9oV-2f-noz" id="POl-K7-6bC"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="Ga1-NS-cp1"/>
+                                                    <constraint firstItem="mFf-55-7Nz" firstAttribute="width" secondItem="3TV-uL-tj3" secondAttribute="width" id="KXX-j7-GfE"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-gE-cdr">
+                                                <rect key="frame" x="208" y="0.0" width="200" height="45"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wl1-kI-LDa">
+                                                        <rect key="frame" x="65" y="29" width="71" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Celebrity 2" id="gbA-JC-qIm">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Id2-yJ-kSm">
+                                                        <rect key="frame" x="-2" y="-3" width="205" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="AOC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fMw-Xd-OZE" id="Q48-l4-XRQ">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <menu key="menu" id="Zw0-q8-89m">
+                                                                <items>
+                                                                    <menuItem title="AOC" state="on" id="fMw-Xd-OZE"/>
+                                                                    <menuItem title="Item 2" id="IhI-2L-obv"/>
+                                                                    <menuItem title="Item 3" id="3Fv-4G-dFn"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="celebTwoAction:" target="9oV-2f-noz" id="hKR-Eb-XIK"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Id2-yJ-kSm" firstAttribute="width" secondItem="b2B-gE-cdr" secondAttribute="width" id="37Z-KQ-fzV"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="Ga1-NS-cp1"/>
-                                            <constraint firstItem="mFf-55-7Nz" firstAttribute="width" secondItem="3TV-uL-tj3" secondAttribute="width" id="KXX-j7-GfE"/>
+                                            <constraint firstItem="b2B-gE-cdr" firstAttribute="width" secondItem="3TV-uL-tj3" secondAttribute="width" id="vfb-J3-3e7"/>
                                         </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
@@ -802,51 +859,17 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-gE-cdr">
-                                        <rect key="frame" x="208" y="0.0" width="200" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wl1-kI-LDa">
-                                                <rect key="frame" x="65" y="29" width="71" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Celebrity 2" id="gbA-JC-qIm">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Id2-yJ-kSm">
-                                                <rect key="frame" x="-2" y="-3" width="205" height="25"/>
-                                                <popUpButtonCell key="cell" type="push" title="AOC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fMw-Xd-OZE" id="Q48-l4-XRQ">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                    <menu key="menu" id="Zw0-q8-89m">
-                                                        <items>
-                                                            <menuItem title="AOC" state="on" id="fMw-Xd-OZE"/>
-                                                            <menuItem title="Item 2" id="IhI-2L-obv"/>
-                                                            <menuItem title="Item 3" id="3Fv-4G-dFn"/>
-                                                        </items>
-                                                    </menu>
-                                                </popUpButtonCell>
-                                                <connections>
-                                                    <action selector="celebTwoAction:" target="9oV-2f-noz" id="hKR-Eb-XIK"/>
-                                                </connections>
-                                            </popUpButton>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Id2-yJ-kSm" firstAttribute="width" secondItem="b2B-gE-cdr" secondAttribute="width" id="37Z-KQ-fzV"/>
-                                        </constraints>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ABJ-fQ-2g6">
+                                        <rect key="frame" x="137" y="-7" width="135" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Manage Tweets" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aE3-Vw-8PD">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="addItemButtonClicked:" target="9oV-2f-noz" id="BPh-4X-9Uc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="b2B-gE-cdr" firstAttribute="width" secondItem="3TV-uL-tj3" secondAttribute="width" id="vfb-J3-3e7"/>
-                                </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -858,18 +881,133 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="WQm-5V-K0F" firstAttribute="centerY" secondItem="UCF-II-nZ2" secondAttribute="centerY" id="6Jm-br-Dkf"/>
-                            <constraint firstItem="WQm-5V-K0F" firstAttribute="centerX" secondItem="UCF-II-nZ2" secondAttribute="centerX" id="kR3-vN-nDZ"/>
+                            <constraint firstItem="CL3-rE-8yY" firstAttribute="centerY" secondItem="UCF-II-nZ2" secondAttribute="centerY" id="TIe-jY-LEc"/>
+                            <constraint firstItem="CL3-rE-8yY" firstAttribute="centerX" secondItem="UCF-II-nZ2" secondAttribute="centerX" id="jfD-Du-T1L"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="celebrityOneMenu" destination="mFf-55-7Nz" id="rBO-UR-Ycl"/>
                         <outlet property="celebrityTwoMenu" destination="Id2-yJ-kSm" id="WMd-hR-WKK"/>
+                        <segue destination="Pb4-c2-1B6" kind="show" identifier="addItems" id="QIh-yV-EJP"/>
                     </connections>
                 </viewController>
                 <customObject id="xN5-Lh-DEz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="247" y="1559"/>
         </scene>
+        <!--Add Items View Controller-->
+        <scene sceneID="6tf-j3-3qn">
+            <objects>
+                <viewController id="Pb4-c2-1B6" customClass="AddItemsViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="A9O-MK-60n">
+                        <rect key="frame" x="0.0" y="0.0" width="523" height="354"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yb4-aQ-puz">
+                                <rect key="frame" x="131" y="93" width="261" height="168"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yPz-oG-q2G">
+                                        <rect key="frame" x="77" y="147" width="108" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Celebrity Name" drawsBackground="YES" id="gB1-o1-evq">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wJp-gf-Y9t">
+                                        <rect key="frame" x="79" y="99" width="103" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Select FIle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2tQ-dh-bUO">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="selectFileTapped:" target="Pb4-c2-1B6" id="XRF-TU-XOZ"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7VK-kv-dhN">
+                                        <rect key="frame" x="96" y="58" width="70" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lRP-uh-0Xj">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="saveButtonClicked:" target="Pb4-c2-1B6" id="GXW-XX-SCy"/>
+                                        </connections>
+                                    </button>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-Xo-Gar">
+                                        <rect key="frame" x="91" y="0.0" width="80" height="45"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jGp-xG-OaP" userLabel="Delete Tweet">
+                                                <rect key="frame" x="-2" y="29" width="84" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Delete Tweet" id="OX5-wv-hJb">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-iU-89w">
+                                                <rect key="frame" x="2" y="-3" width="77" height="25"/>
+                                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Prl-IZ-Erq" id="urL-0p-Zch">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                    <menu key="menu" id="q8Q-Cq-2Z3">
+                                                        <items>
+                                                            <menuItem title="Item 1" state="on" id="Prl-IZ-Erq"/>
+                                                            <menuItem title="Item 2" id="rcM-6l-FcA"/>
+                                                            <menuItem title="Item 3" id="J0E-gc-dTn"/>
+                                                        </items>
+                                                    </menu>
+                                                    <connections>
+                                                        <action selector="deleteTweet:" target="Pb4-c2-1B6" id="TGW-ar-cIP"/>
+                                                    </connections>
+                                                </popUpButtonCell>
+                                            </popUpButton>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Yb4-aQ-puz" firstAttribute="centerY" secondItem="A9O-MK-60n" secondAttribute="centerY" id="1SP-3E-pSK"/>
+                            <constraint firstItem="Yb4-aQ-puz" firstAttribute="width" secondItem="A9O-MK-60n" secondAttribute="width" multiplier="0.5" id="DeX-I5-aly"/>
+                            <constraint firstItem="Yb4-aQ-puz" firstAttribute="centerX" secondItem="A9O-MK-60n" secondAttribute="centerX" id="lZ7-d0-2NQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="celebrityNameTextFiled" destination="yPz-oG-q2G" id="gLr-M8-8XO"/>
+                        <outlet property="deleteTweetPopUp" destination="bsh-iU-89w" id="xjZ-J7-doz"/>
+                        <outlet property="saveButton" destination="7VK-kv-dhN" id="rQL-xO-VKJ"/>
+                        <outlet property="selectFileButton" destination="wJp-gf-Y9t" id="ed2-8n-Pse"/>
+                        <segue destination="9oV-2f-noz" kind="show" identifier="itemAddClose" id="qcD-jd-4GQ"/>
+                    </connections>
+                </viewController>
+                <customObject id="0jA-6N-Sbh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="283.5" y="1914"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QIh-yV-EJP"/>
+        <segue reference="qcD-jd-4GQ"/>
+    </inferredMetricsTieBreakers>
 </document>

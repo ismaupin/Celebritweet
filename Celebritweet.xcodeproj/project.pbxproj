@@ -15,6 +15,9 @@
 		E874C8A724CB64BA00DE9301 /* CelebritweetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8A624CB64BA00DE9301 /* CelebritweetUITests.swift */; };
 		E874C8BB24CB91FE00DE9301 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */; };
 		E874C8BD24CBB8AD00DE9301 /* NSImage + tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */; };
+		E8D7553C24D04E84001DFE45 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7553B24D04E84001DFE45 /* Bookmarks.swift */; };
+		E8F4313B24CCB5F30063232D /* MenuStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4313A24CCB5F30063232D /* MenuStore.swift */; };
+		E8F4313D24CCB8A20063232D /* AddItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		E874C8A824CB64BA00DE9301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
 		E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage + tweets.swift"; sourceTree = "<group>"; };
+		E8D7553B24D04E84001DFE45 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
+		E8F4313A24CCB5F30063232D /* MenuStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStore.swift; sourceTree = "<group>"; };
+		E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 		E874C88724CB64B800DE9301 /* Celebritweet */ = {
 			isa = PBXGroup;
 			children = (
+				E8D7553B24D04E84001DFE45 /* Bookmarks.swift */,
 				E874C88824CB64B800DE9301 /* AppDelegate.swift */,
 				E874C88A24CB64B800DE9301 /* DisplayViewController.swift */,
 				E874C88C24CB64B900DE9301 /* Assets.xcassets */,
@@ -108,6 +115,8 @@
 				E874C89224CB64BA00DE9301 /* Celebritweet.entitlements */,
 				E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */,
 				E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */,
+				E8F4313A24CCB5F30063232D /* MenuStore.swift */,
+				E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */,
 			);
 			path = Celebritweet;
 			sourceTree = "<group>";
@@ -260,6 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F4313B24CCB5F30063232D /* MenuStore.swift in Sources */,
+				E8D7553C24D04E84001DFE45 /* Bookmarks.swift in Sources */,
+				E8F4313D24CCB8A20063232D /* AddItemsViewController.swift in Sources */,
 				E874C88B24CB64B800DE9301 /* DisplayViewController.swift in Sources */,
 				E874C8BB24CB91FE00DE9301 /* ControlsViewController.swift in Sources */,
 				E874C8BD24CBB8AD00DE9301 /* NSImage + tweets.swift in Sources */,
