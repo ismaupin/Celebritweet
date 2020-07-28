@@ -6,6 +6,7 @@
 //  Copyright © 2020 Isaac Maupin. All rights reserved.
 //
 
+// This is mostly left over from the initial version of the application whihc was unsustainable. The extension is only employed once as a way of error prevention.
 import Foundation
 
 import Cocoa

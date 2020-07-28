@@ -83,6 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E85D24D224D05F0600FB9386 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E874C88A24CB64B800DE9301 /* DisplayViewController.swift */,
+				E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */,
+				E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E85D24D324D05F3200FB9386 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8F4313A24CCB5F30063232D /* MenuStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E85D24D424D05F5000FB9386 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */,
+				E8D7553B24D04E84001DFE45 /* Bookmarks.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E874C87C24CB64B800DE9301 = {
 			isa = PBXGroup;
 			children = (
@@ -106,17 +133,14 @@
 		E874C88724CB64B800DE9301 /* Celebritweet */ = {
 			isa = PBXGroup;
 			children = (
-				E8D7553B24D04E84001DFE45 /* Bookmarks.swift */,
-				E874C88824CB64B800DE9301 /* AppDelegate.swift */,
-				E874C88A24CB64B800DE9301 /* DisplayViewController.swift */,
-				E874C88C24CB64B900DE9301 /* Assets.xcassets */,
 				E874C88E24CB64B900DE9301 /* Main.storyboard */,
+				E85D24D224D05F0600FB9386 /* View Controllers */,
+				E85D24D324D05F3200FB9386 /* Model */,
+				E85D24D424D05F5000FB9386 /* Utilities */,
+				E874C88824CB64B800DE9301 /* AppDelegate.swift */,
+				E874C88C24CB64B900DE9301 /* Assets.xcassets */,
 				E874C89124CB64BA00DE9301 /* Info.plist */,
 				E874C89224CB64BA00DE9301 /* Celebritweet.entitlements */,
-				E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */,
-				E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */,
-				E8F4313A24CCB5F30063232D /* MenuStore.swift */,
-				E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */,
 			);
 			path = Celebritweet;
 			sourceTree = "<group>";

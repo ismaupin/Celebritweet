@@ -11,16 +11,11 @@ import Cocoa
 
 
 class AddItemsViewController: NSViewController {
-  
+    
     @IBOutlet var celebrityNameTextFiled: NSTextField!
-    
     @IBOutlet var selectFileButton: NSButton!
-    
     @IBOutlet var deleteTweetPopUp: NSPopUpButton!
-    
     @IBOutlet var saveButton: NSButton!
-    
-    
     
     var store: MenuStore!
     var tweetOne: NSImageView!
@@ -33,7 +28,7 @@ class AddItemsViewController: NSViewController {
     }
     
     override func viewWillAppear() {
-    
+        
         super.viewDidAppear()
         self.view.window?.standardWindowButton(NSWindow.ButtonType.closeButton)!.isHidden = true
         self.view.window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)!.isHidden = true
@@ -42,15 +37,15 @@ class AddItemsViewController: NSViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
-    
-    
-     guard let inputName = celebrityNameTextFiled?.stringValue else {
-                 return
-            }
-    
-            let enteredText = String(inputName)
-    
-            store.menuItems.append(enteredText)
+        
+        
+        guard let inputName = celebrityNameTextFiled?.stringValue else {
+            return
+        }
+        
+        let enteredText = String(inputName)
+        
+      store.menuItems.append(enteredText)
         
         self.view.window?.windowController?.close()
         performSegue(withIdentifier: "itemAddClose", sender: sender)
@@ -80,7 +75,7 @@ class AddItemsViewController: NSViewController {
         panel.beginSheetModal(for: window) {
             (result) in if result == NSApplication.ModalResponse.OK {
                 //save the image to the urls for use later
-
+                
                 if self.celebrityNameTextFiled?.stringValue != nil {
                     self.store.imageURLs.updateValue(panel.urls[0], forKey: self.celebrityNameTextFiled.stringValue)
                     Bookmarks.saveBookmarkData(for: panel.urls[0], name: self.celebrityNameTextFiled.stringValue)
@@ -99,11 +94,11 @@ class AddItemsViewController: NSViewController {
         store.menuItems.remove(at: menuIndex!)
         
         self.view.window?.windowController?.close()
-               performSegue(withIdentifier: "itemAddClose", sender: sender)
+        performSegue(withIdentifier: "itemAddClose", sender: sender)
         
     }
     
     
-   
+    
     
 }

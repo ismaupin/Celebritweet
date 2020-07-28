@@ -26,6 +26,7 @@ class MenuStore {
     }()
     
     init() {
+        // repopulate store dictionaries from persisted plist when they are initialized
         do {
             let data = try Data(contentsOf: archiveURL)
             let unarchiver = PropertyListDecoder()
