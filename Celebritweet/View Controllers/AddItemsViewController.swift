@@ -10,21 +10,28 @@ import Foundation
 import Cocoa
 
 
-class AddItemsViewController: NSViewController {
+class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     
     @IBOutlet var celebrityNameTextFiled: NSTextField!
     @IBOutlet var selectFileButton: NSButton!
     @IBOutlet var deleteTweetPopUp: NSPopUpButton!
     @IBOutlet var saveButton: NSButton!
     
+    
+    
     var store: MenuStore!
     var tweetOne: NSImageView!
     var tweetTwo: NSImageView!
+    
+    
+    
     
     override func viewDidLoad() {
         deleteTweetPopUp.removeAllItems()
         deleteTweetPopUp.addItems(withTitles: store.menuItems)
         saveButton.isEnabled = false
+        selectFileButton.isEnabled = false
+       
     }
     
     override func viewWillAppear() {
@@ -33,8 +40,14 @@ class AddItemsViewController: NSViewController {
         self.view.window?.standardWindowButton(NSWindow.ButtonType.closeButton)!.isHidden = true
         self.view.window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)!.isHidden = true
         self.view.window?.standardWindowButton(NSWindow.ButtonType.zoomButton)!.isHidden = true
+        celebrityNameTextFiled.delegate = self
         
     }
+    
+    func controlTextDidChange(_ obj: Notification) {
+        selectFileButton.isEnabled = true
+    }
+ 
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         
