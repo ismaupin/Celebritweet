@@ -19,6 +19,8 @@ class ViewController: NSViewController, NSImageDelegate {
         super.viewWillAppear()
         tweetOne.image?.delegate = self
         tweetTwo.image?.delegate = self
+        self.view.window?.standardWindowButton(NSWindow.ButtonType.closeButton)!.isHidden = true
+        self.view.window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)!.isHidden = true
     }
     //MARK: Layout View -
     override func viewDidLoad() {

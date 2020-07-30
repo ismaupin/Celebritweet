@@ -893,7 +893,7 @@
                 </viewController>
                 <customObject id="xN5-Lh-DEz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="247" y="1559"/>
+            <point key="canvasLocation" x="74" y="1379"/>
         </scene>
         <!--Manage Tweets-->
         <scene sceneID="6tf-j3-3qn">
@@ -1003,7 +1003,7 @@
                 </viewController>
                 <customObject id="0jA-6N-Sbh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="283.5" y="1914"/>
+            <point key="canvasLocation" x="97" y="1935"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
