@@ -895,10 +895,10 @@
             </objects>
             <point key="canvasLocation" x="247" y="1559"/>
         </scene>
-        <!--Add Items View Controller-->
+        <!--Manage Tweets-->
         <scene sceneID="6tf-j3-3qn">
             <objects>
-                <viewController id="Pb4-c2-1B6" customClass="AddItemsViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Manage Tweets" id="Pb4-c2-1B6" customClass="AddItemsViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="A9O-MK-60n">
                         <rect key="frame" x="0.0" y="0.0" width="523" height="354"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1007,7 +1007,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QIh-yV-EJP"/>
         <segue reference="qcD-jd-4GQ"/>
     </inferredMetricsTieBreakers>
 </document>
