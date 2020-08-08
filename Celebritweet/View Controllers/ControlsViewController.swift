@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+import RxSwift
 
 class ControlsViewController: NSViewController {
     @IBOutlet var celebrityOneMenu: NSPopUpButton!
@@ -15,7 +15,19 @@ class ControlsViewController: NSViewController {
     
   
     var store = MenuStore()
-    var delegate: StoredImageDelegate?
+    
+    
+    var itemsVC = AddItemsViewController()
+    
+    
+    let tweetOneSequence = PublishSubject<NSImage>()
+    let tweetTwoSquence = PublishSubject<NSImage>()
+    var tweetOneObserver:Observable<NSImage> {
+        return tweetOneSequence.asObservable()
+    }
+    var tweetTwoObserver:Observable<NSImage> {
+        return tweetTwoSquence.asObservable()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +63,9 @@ class ControlsViewController: NSViewController {
         guard let imageURL = bookmarkURL else{return}
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
         if tweetImage.isValid {
-            if let delegate = delegate {
-                delegate.didSetFirstTweet(tweetImage)
-            }
-//            celebTweetOne.image = tweetImage
+            
+            tweetOneSequence.on(.next (tweetImage))
+
         }
         else { print ("image is invalid")}
     }
@@ -69,10 +80,8 @@ class ControlsViewController: NSViewController {
         guard let imageURL = bookmarkURL else{return}
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
         if tweetImage.isValid {
-            if let delegate = delegate {
-                delegate.didSetSecondTweet(tweetImage)
-            }
-//            celebTweetTwo.image = tweetImage
+            
+            tweetTwoSquence.on(.next(tweetImage))
         }
         else { print ("image is invalid")}
         
@@ -83,22 +92,14 @@ class ControlsViewController: NSViewController {
     // MARK: new window methods
     
     @IBAction func addItemButtonClicked(_ sender: NSButton) {
+        let sheet = storyboard?.instantiateController(withIdentifier: "AddItemsViewController") as! AddItemsViewController
         
-        performSegue(withIdentifier: "addItems", sender: sender)
-        
-        view.window?.windowController?.close()
-    }
-    
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        let addItemsViewController = segue.destinationController as! AddItemsViewController
-        
-        addItemsViewController.store = store
+        sheet.store = store
+        self.addChild(sheet)
+        self.presentAsSheet(sheet)
 
-        addItemsViewController.delegate = delegate
-        
-        self.addChild(addItemsViewController)
     }
+    
     
     // MARK: restore access to files outside of the sandbox
     

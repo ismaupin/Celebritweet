@@ -17,11 +17,11 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var deleteTweetPopUp: NSPopUpButton!
     @IBOutlet var saveButton: NSButton!
     
-    
+   
     
     var store: MenuStore!
 
-    var delegate: StoredImageDelegate?
+  
     
     
     
@@ -37,9 +37,7 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     override func viewWillAppear() {
         
         super.viewDidAppear()
-        self.view.window?.standardWindowButton(NSWindow.ButtonType.closeButton)!.isHidden = true
-        self.view.window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)!.isHidden = true
-        self.view.window?.standardWindowButton(NSWindow.ButtonType.zoomButton)!.isHidden = true
+
         celebrityNameTextFiled.delegate = self
         
     }
@@ -59,16 +57,17 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
         let enteredText = String(inputName)
         
       store.menuItems.append(enteredText)
-        
-        self.view.window?.windowController?.close()
-        performSegue(withIdentifier: "itemAddClose", sender: sender)
+        store.saveChanges()
+        parent?.viewDidLoad()
+        parent?.viewWillAppear()
+        dismiss(self)
+
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         let controlView = segue.destinationController as! ControlsViewController
         controlView.store = store
 
-        controlView.delegate = delegate
     }
     
     override func viewWillDisappear() {
@@ -105,9 +104,11 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
         
         let menuIndex = store.menuItems.firstIndex(of: item)
         store.menuItems.remove(at: menuIndex!)
-        
-        self.view.window?.windowController?.close()
-        performSegue(withIdentifier: "itemAddClose", sender: sender)
+        store.saveChanges()
+        parent?.viewDidLoad()
+        parent?.viewWillAppear()
+        dismiss(self)
+
         
     }
     

@@ -7,13 +7,15 @@
 //
 
 import Cocoa
+import RxSwift
 
-class ViewController: NSViewController, NSImageDelegate, StoredImageDelegate {
+class ViewController: NSViewController, NSImageDelegate  {
     
     @IBOutlet var imageStackView: NSStackView!
     @IBOutlet var tweetOne: NSImageView!
     @IBOutlet var tweetTwo: NSImageView!
     
+    let disposeBag = DisposeBag()
     
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -77,7 +79,14 @@ class ViewController: NSViewController, NSImageDelegate, StoredImageDelegate {
         
         let destinationVC = segue.destinationController as! ControlsViewController
 
-        destinationVC.delegate = self
+        
+        destinationVC.tweetOneObserver.subscribe(onNext: {
+            [weak self] (image) in self?.tweetOne.image = image
+            }).disposed(by: disposeBag)
+        
+        destinationVC.tweetTwoObserver.subscribe(onNext: {
+            [weak self] (image) in self?.tweetTwo.image = image
+            }).disposed(by: disposeBag)
         
     }
     func imageDidNotDraw(_ sender: NSImage, in rect: NSRect) -> NSImage? {
@@ -85,13 +94,7 @@ class ViewController: NSViewController, NSImageDelegate, StoredImageDelegate {
     }
     
     
-    func didSetFirstTweet(_ image: NSImage) {
-        tweetOne.image = image
-    }
-    
-    func didSetSecondTweet(_ image: NSImage) {
-        tweetTwo.image = image
-    }
+   
     
 }
 

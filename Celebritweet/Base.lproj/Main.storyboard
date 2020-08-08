@@ -782,8 +782,6 @@
                                                             <menu key="menu" id="Dlw-x5-izh">
                                                                 <items>
                                                                     <menuItem title="AOC" state="on" id="2o2-cC-fea"/>
-                                                                    <menuItem title="Item 2" id="OGz-1L-xCt"/>
-                                                                    <menuItem title="Item 3" id="qkE-e8-dCf"/>
                                                                 </items>
                                                             </menu>
                                                         </popUpButtonCell>
@@ -824,8 +822,6 @@
                                                             <menu key="menu" id="Zw0-q8-89m">
                                                                 <items>
                                                                     <menuItem title="AOC" state="on" id="fMw-Xd-OZE"/>
-                                                                    <menuItem title="Item 2" id="IhI-2L-obv"/>
-                                                                    <menuItem title="Item 3" id="3Fv-4G-dFn"/>
                                                                 </items>
                                                             </menu>
                                                         </popUpButtonCell>
@@ -888,7 +884,7 @@
                     <connections>
                         <outlet property="celebrityOneMenu" destination="mFf-55-7Nz" id="rBO-UR-Ycl"/>
                         <outlet property="celebrityTwoMenu" destination="Id2-yJ-kSm" id="WMd-hR-WKK"/>
-                        <segue destination="Pb4-c2-1B6" kind="show" identifier="addItems" id="QIh-yV-EJP"/>
+                        <segue destination="Pb4-c2-1B6" kind="sheet" identifier="addItems" id="QIh-yV-EJP"/>
                     </connections>
                 </viewController>
                 <customObject id="xN5-Lh-DEz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -898,7 +894,7 @@
         <!--Manage Tweets-->
         <scene sceneID="6tf-j3-3qn">
             <objects>
-                <viewController title="Manage Tweets" id="Pb4-c2-1B6" customClass="AddItemsViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Manage Tweets" storyboardIdentifier="AddItemsViewController" id="Pb4-c2-1B6" customClass="AddItemsViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="A9O-MK-60n">
                         <rect key="frame" x="0.0" y="0.0" width="523" height="354"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1007,6 +1003,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="QIh-yV-EJP"/>
         <segue reference="qcD-jd-4GQ"/>
     </inferredMetricsTieBreakers>
 </document>

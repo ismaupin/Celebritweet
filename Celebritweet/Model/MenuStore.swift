@@ -16,7 +16,6 @@ class MenuStore {
     
     var menuItems: [String] = []
     var imageURLs: [String: URL] = [:]
-    
     let archiveURL: URL = {
     
         let documentDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
