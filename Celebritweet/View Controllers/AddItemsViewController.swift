@@ -83,6 +83,7 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
         panel.canChooseFiles = true
         panel.canChooseDirectories = false
         panel.allowsMultipleSelection = false
+        panel.allowedFileTypes = NSImage.imageTypes
         
         panel.beginSheetModal(for: window) {
             (result) in if result == NSApplication.ModalResponse.OK {
