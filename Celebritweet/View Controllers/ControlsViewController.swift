@@ -8,14 +8,14 @@
 
 import Cocoa
 
+
 class ControlsViewController: NSViewController {
     @IBOutlet var celebrityOneMenu: NSPopUpButton!
     @IBOutlet var celebrityTwoMenu: NSPopUpButton!
     
-    var celebTweetOne: NSImageView!
-    var celebTweetTwo: NSImageView!
+  
     var store = MenuStore()
-    
+    var delegate: StoredImageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +51,12 @@ class ControlsViewController: NSViewController {
         guard let imageURL = bookmarkURL else{return}
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
         if tweetImage.isValid {
-            
-            celebTweetOne.image = tweetImage
+            if let delegate = delegate {
+                delegate.didSetFirstTweet(tweetImage)
+            }
+//            celebTweetOne.image = tweetImage
         }
-        else { print ("image is invallid")}
+        else { print ("image is invalid")}
     }
     
     @IBAction func celebTwoAction(_ sender: NSPopUpButton) {
@@ -67,10 +69,12 @@ class ControlsViewController: NSViewController {
         guard let imageURL = bookmarkURL else{return}
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
         if tweetImage.isValid {
-            
-            celebTweetTwo.image = tweetImage
+            if let delegate = delegate {
+                delegate.didSetSecondTweet(tweetImage)
+            }
+//            celebTweetTwo.image = tweetImage
         }
-        else { print ("image is invallid")}
+        else { print ("image is invalid")}
         
         
         
@@ -90,8 +94,8 @@ class ControlsViewController: NSViewController {
         let addItemsViewController = segue.destinationController as! AddItemsViewController
         
         addItemsViewController.store = store
-        addItemsViewController.tweetOne = celebTweetOne
-        addItemsViewController.tweetTwo = celebTweetTwo
+
+        addItemsViewController.delegate = delegate
         
         self.addChild(addItemsViewController)
     }

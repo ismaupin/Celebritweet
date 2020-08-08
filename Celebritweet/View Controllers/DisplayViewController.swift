@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSImageDelegate {
+class ViewController: NSViewController, NSImageDelegate, StoredImageDelegate {
     
     @IBOutlet var imageStackView: NSStackView!
     @IBOutlet var tweetOne: NSImageView!
@@ -76,12 +76,21 @@ class ViewController: NSViewController, NSImageDelegate {
         
         
         let destinationVC = segue.destinationController as! ControlsViewController
-        destinationVC.celebTweetOne = tweetOne
-        destinationVC.celebTweetTwo = tweetTwo
+
+        destinationVC.delegate = self
         
     }
     func imageDidNotDraw(_ sender: NSImage, in rect: NSRect) -> NSImage? {
         return NSImage(resource: .aoc)
+    }
+    
+    
+    func didSetFirstTweet(_ image: NSImage) {
+        tweetOne.image = image
+    }
+    
+    func didSetSecondTweet(_ image: NSImage) {
+        tweetTwo.image = image
     }
     
 }

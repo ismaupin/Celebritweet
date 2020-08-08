@@ -20,8 +20,8 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     
     
     var store: MenuStore!
-    var tweetOne: NSImageView!
-    var tweetTwo: NSImageView!
+
+    var delegate: StoredImageDelegate?
     
     
     
@@ -67,8 +67,8 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         let controlView = segue.destinationController as! ControlsViewController
         controlView.store = store
-        controlView.celebTweetOne = tweetOne
-        controlView.celebTweetTwo = tweetTwo
+
+        controlView.delegate = delegate
     }
     
     override func viewWillDisappear() {
