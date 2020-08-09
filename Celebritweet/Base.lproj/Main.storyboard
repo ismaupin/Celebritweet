@@ -990,7 +990,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="celebrityNameTextFiled" destination="yPz-oG-q2G" id="gLr-M8-8XO"/>
+                        <outlet property="celebrityNameTextField" destination="yPz-oG-q2G" id="gLr-M8-8XO"/>
                         <outlet property="deleteTweetPopUp" destination="bsh-iU-89w" id="xjZ-J7-doz"/>
                         <outlet property="saveButton" destination="7VK-kv-dhN" id="rQL-xO-VKJ"/>
                         <outlet property="selectFileButton" destination="wJp-gf-Y9t" id="ed2-8n-Pse"/>
@@ -1003,7 +1003,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QIh-yV-EJP"/>
         <segue reference="qcD-jd-4GQ"/>
     </inferredMetricsTieBreakers>
 </document>

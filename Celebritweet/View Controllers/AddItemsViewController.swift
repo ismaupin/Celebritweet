@@ -12,20 +12,13 @@ import Cocoa
 
 class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     
-    @IBOutlet var celebrityNameTextFiled: NSTextField!
+    @IBOutlet var celebrityNameTextField: NSTextField!
     @IBOutlet var selectFileButton: NSButton!
     @IBOutlet var deleteTweetPopUp: NSPopUpButton!
     @IBOutlet var saveButton: NSButton!
     
-   
-    
     var store: MenuStore!
 
-  
-    
-    
-    
-    
     override func viewDidLoad() {
         deleteTweetPopUp.removeAllItems()
         deleteTweetPopUp.addItems(withTitles: store.menuItems)
@@ -36,9 +29,9 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     
     override func viewWillAppear() {
         
-        super.viewDidAppear()
+        super.viewWillAppear()
 
-        celebrityNameTextFiled.delegate = self
+        celebrityNameTextField.delegate = self
         
     }
     
@@ -50,7 +43,7 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         
         
-        guard let inputName = celebrityNameTextFiled?.stringValue else {
+        guard let inputName = celebrityNameTextField?.stringValue else {
             return
         }
         
@@ -89,9 +82,9 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
             (result) in if result == NSApplication.ModalResponse.OK {
                 //save the image to the urls for use later
                 
-                if self.celebrityNameTextFiled?.stringValue != nil {
-                    self.store.imageURLs.updateValue(panel.urls[0], forKey: self.celebrityNameTextFiled.stringValue)
-                    Bookmarks.saveBookmarkData(for: panel.urls[0], name: self.celebrityNameTextFiled.stringValue)
+                if self.celebrityNameTextField?.stringValue != nil {
+                    self.store.imageURLs.updateValue(panel.urls[0], forKey: self.celebrityNameTextField.stringValue)
+                    Bookmarks.saveBookmarkData(for: panel.urls[0], name: self.celebrityNameTextField.stringValue)
                 }
                 self.saveButton.isEnabled = true
             }
