@@ -10,16 +10,13 @@ import Cocoa
 import RxSwift
 
 class ControlsViewController: NSViewController {
+    
+//MARK: Properties -
     @IBOutlet var celebrityOneMenu: NSPopUpButton!
     @IBOutlet var celebrityTwoMenu: NSPopUpButton!
     
-  
     var store = MenuStore()
-    
-    
-    var itemsVC = AddItemsViewController()
-    
-    
+
     let tweetOneSequence = PublishSubject<NSImage>()
     let tweetTwoSquence = PublishSubject<NSImage>()
     var tweetOneObserver:Observable<NSImage> {
@@ -29,29 +26,26 @@ class ControlsViewController: NSViewController {
         return tweetTwoSquence.asObservable()
     }
     
+// MARK: Methods -
+// MARK: View Enterance Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         celebrityOneMenu.removeAllItems()
         celebrityTwoMenu.removeAllItems()
-        
-        
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
         // Update popUpButtons
         if store.menuItems.isEmpty {
-            
             store.menuItems = store.imageURLs.map {$0.key}
         }
-        
         celebrityOneMenu.addItems(withTitles: store.menuItems)
         celebrityTwoMenu.addItems(withTitles: store.menuItems)
-        
     }
     
-    // MARK: action methods
+// MARK: Action Methods
     
     @IBAction func celebOneAction(_ sender: NSPopUpButton) {
         // make sure the image path is an image and set the celebTweetOne to display it
@@ -62,10 +56,9 @@ class ControlsViewController: NSViewController {
         let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
         guard let imageURL = bookmarkURL else{return}
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
+       
         if tweetImage.isValid {
-            
             tweetOneSequence.on(.next (tweetImage))
-
         }
         else { print ("image is invalid")}
     }
@@ -79,17 +72,14 @@ class ControlsViewController: NSViewController {
         let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
         guard let imageURL = bookmarkURL else{return}
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
+        
         if tweetImage.isValid {
-            
             tweetTwoSquence.on(.next(tweetImage))
         }
         else { print ("image is invalid")}
-        
-        
-        
     }
     
-    // MARK: new window methods
+// MARK: New Window Methods
     
     @IBAction func addItemButtonClicked(_ sender: NSButton) {
         let sheet = storyboard?.instantiateController(withIdentifier: "AddItemsViewController") as! AddItemsViewController
@@ -100,8 +90,7 @@ class ControlsViewController: NSViewController {
 
     }
     
-    
-    // MARK: restore access to files outside of the sandbox
+// MARK: Restore Access to Bookmarked Files (files outside of the sandbox)
     
     private func restoreFileAccess(withBookmarkdata: Data, name: String)->URL?{
         do {
@@ -119,7 +108,5 @@ class ControlsViewController: NSViewController {
             print("Error resloving bookmark: \(error)")
             return nil
         }
-        
     }
-    
 }

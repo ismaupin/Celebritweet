@@ -56,8 +56,6 @@ class ViewController: NSViewController, NSImageDelegate  {
         imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         
-        
-        
         tweetOne.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         tweetTwo.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         tweetOne.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
@@ -65,8 +63,6 @@ class ViewController: NSViewController, NSImageDelegate  {
         
         tweetOne.image = NSImage(resource: .aoc)
         tweetTwo.image = NSImage(resource: .aoc)
-        
-       
     }
     
     @IBAction func controlWindowSelected (_ sender: Any) {
@@ -89,16 +85,7 @@ class ViewController: NSViewController, NSImageDelegate  {
             [weak self] (image) in self?.tweetTwo.image = image
         }).disposed(by: disposeBag)
         
-        
-        case "TimerSegue":
-            
-        let destinationVC = segue.destinationController as! TimerViewController
-        
-            //TODO: add anything that needs to be transferred here (probably nothing)
-        
-        
         default:
-            print("Unknown segue identifier")
             break
         }
     }

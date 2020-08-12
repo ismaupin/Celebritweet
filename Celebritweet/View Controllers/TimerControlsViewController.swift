@@ -23,7 +23,6 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     let disposeBag = DisposeBag()
     var appTimer: Timer?
     
-    
     let timerAmountSubject = BehaviorRelay<Double>(value: 0.00)
     
     
@@ -41,15 +40,13 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
                 onNext:{ self.timer?.timerLabel.stringValue = String(format: "%.1f", $0)
             })
             .disposed(by: disposeBag)
-        
     }
     
     func controlTextDidChange(_ obj: Notification) {
         guard let double = Double(setTimeTextField.stringValue) else{ return }
-        
+        timer?.timerLabel.textColor = double > 5 ? .white : .red
         timerAmountSubject.accept(double)
         startButton.isEnabled = true
-        
     }
     
     
@@ -60,6 +57,8 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
         
         if timerAmountSubject.value < 0.1 {
             self.appTimer!.invalidate()
+            startButton.isEnabled = false
+            stopButton.isEnabled = false
         }
     }
     
@@ -71,11 +70,9 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
         startButton.isEnabled = false
         stopButton.isEnabled = true
         resetButton.isEnabled = true
-        
     }
     
     @IBAction func stopButtonClicked(_ sender: NSButton) {
-        
         //pause the timer (you should be able to start back at this time
         appTimer?.invalidate()
         startButton.isEnabled = true
@@ -84,10 +81,8 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func resetButtonClicked(_ sender: Any) {
         guard let double = Double(setTimeTextField.stringValue) else {return}
         // reset timer to time in textbox
-        
         startButton.isEnabled = appTimer!.isValid ? false : true
         timerAmountSubject.accept(double)
         self.timer?.timerLabel.textColor = .white
-        
     }
 }

@@ -24,15 +24,11 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
         deleteTweetPopUp.addItems(withTitles: store.menuItems)
         saveButton.isEnabled = false
         selectFileButton.isEnabled = false
-       
     }
     
     override func viewWillAppear() {
-        
         super.viewWillAppear()
-
         celebrityNameTextField.delegate = self
-        
     }
     
     func controlTextDidChange(_ obj: Notification) {
@@ -41,12 +37,7 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
  
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
-        
-        
-        guard let inputName = celebrityNameTextField?.stringValue else {
-            return
-        }
-        
+        guard let inputName = celebrityNameTextField?.stringValue else { return }
         let enteredText = String(inputName)
         
       store.menuItems.append(enteredText)
@@ -54,19 +45,16 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
         parent?.viewDidLoad()
         parent?.viewWillAppear()
         dismiss(self)
-
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         let controlView = segue.destinationController as! ControlsViewController
         controlView.store = store
-
     }
     
     override func viewWillDisappear() {
         // persist newly added data
         store.saveChanges()
-        
     }
     
     @IBAction func selectFileTapped(_ sender: NSButton) {
@@ -105,8 +93,4 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
 
         
     }
-    
-    
-    
-    
 }
