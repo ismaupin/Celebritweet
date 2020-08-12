@@ -12,36 +12,35 @@ import RxCocoa
 
 class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     
+    //MARK: Properties -
+    
     @IBOutlet var startButton: NSButton!
     @IBOutlet var stopButton: NSButton!
     @IBOutlet var resetButton: NSButton!
-    
+    @IBOutlet var setTimeTextField: NSTextField!
     
     var timer: TimerViewController?
     let disposeBag = DisposeBag()
     var appTimer: Timer?
     
-    @IBOutlet var setTimeTextField: NSTextField!
-    
-
     
     let timerAmountSubject = BehaviorRelay<Double>(value: 0.00)
     
+    
+    //MARK: Methods -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        startButton.isEnabled = false
         stopButton.isEnabled = false
         resetButton.isEnabled = false
         setTimeTextField.delegate = self
         
-        
-        
-        timerAmountSubject.subscribe(
-        
-            onNext:{ self.timer?.timerLabel.stringValue = String(format: "%.1f", $0);
-
-        }
-        ).disposed(by: disposeBag)
+        timerAmountSubject
+            .subscribe(
+                onNext:{ self.timer?.timerLabel.stringValue = String(format: "%.1f", $0)
+            })
+            .disposed(by: disposeBag)
         
     }
     
@@ -49,26 +48,23 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
         guard let double = Double(setTimeTextField.stringValue) else{ return }
         
         timerAmountSubject.accept(double)
+        startButton.isEnabled = true
         
     }
     
     
     @objc func timerFired() {
         timerAmountSubject.accept(timerAmountSubject.value - 0.1)
-        if timerAmountSubject.value <= 5 {
-            self.timer?.timerLabel.textColor = .red
-        } else {
-            self.timer?.timerLabel.textColor = .white
-        }
+        
+        timer?.timerLabel.textColor = timerAmountSubject.value <= 5 ? .red : .white
+        
         if timerAmountSubject.value < 0.1 {
-            
             self.appTimer!.invalidate()
         }
     }
     
     @IBAction func startButtonClicked(_ sender: NSButton) {
         
-        // write timer logic here
         appTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
         RunLoop.main.add(appTimer!, forMode: .common)
         
@@ -79,7 +75,7 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func stopButtonClicked(_ sender: NSButton) {
-    
+        
         //pause the timer (you should be able to start back at this time
         appTimer?.invalidate()
         startButton.isEnabled = true
@@ -88,7 +84,10 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func resetButtonClicked(_ sender: Any) {
         guard let double = Double(setTimeTextField.stringValue) else {return}
         // reset timer to time in textbox
+        
+        startButton.isEnabled = appTimer!.isValid ? false : true
         timerAmountSubject.accept(double)
         self.timer?.timerLabel.textColor = .white
+        
     }
 }

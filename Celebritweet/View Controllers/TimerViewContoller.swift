@@ -8,47 +8,37 @@
 
 import Foundation
 import Cocoa
-import RxSwift
-import RxCocoa
 import SnapKit
 
 
 class TimerViewController: NSViewController {
     
+    //MARK: Properties -
+    
     @IBOutlet var timerStackView: NSStackView!
     @IBOutlet var timerLabel: NSTextField!
     
     var timerControls: TimerControlsViewController!
-
-    
-//    var timerController: TimerControlsViewController?
     
     var timer: Double = 0.0
-    // timer will reactively listen for the updates when the contols set, start, stop and reset the timer.
-    let disposeBag = DisposeBag()
     
+
+    // MARK: Methods -
     
     override func viewDidLoad() {
-       
-        
+       // build view
         super.viewDidLoad()
         self.view.wantsLayer = true
         let background = NSImage(resource: .timerBackground)
         self.view.layer!.contents = background
         
-        
         timerStackView.addView(timerLabel, in: .center)
         timerStackView.distribution = .equalSpacing
-        
-    
-
-        
         
         timerStackView.snp.makeConstraints{ (make) -> Void in
 
             make.top.equalTo(view)
             make.bottom.equalTo(view)
-
             make.left.equalTo(view)
             make.right.equalTo(view)
 
@@ -63,7 +53,6 @@ class TimerViewController: NSViewController {
         timerStackView.setHuggingPriority(.defaultLow, for: .horizontal)
         timerStackView.setHuggingPriority(.defaultLow, for: .vertical)
         
-
         timerLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         timerLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         timerLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -74,25 +63,13 @@ class TimerViewController: NSViewController {
             make.width.equalTo(450)
         }
         
-        
         timerLabel.stringValue = "\(timer)"
         timerLabel.drawsBackground = true
         timerLabel.backgroundColor = .black
-        
         timerLabel.isBordered = true
-        
-       
-       
     
     }
     
-    
-    
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-       
-    }
     
     @IBAction func openControls(_ sender: Any?) {
         performSegue(withIdentifier: "ShowTimerContols", sender: sender)
