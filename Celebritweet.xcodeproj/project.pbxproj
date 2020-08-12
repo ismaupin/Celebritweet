@@ -18,6 +18,13 @@
 		E874C8A724CB64BA00DE9301 /* CelebritweetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8A624CB64BA00DE9301 /* CelebritweetUITests.swift */; };
 		E874C8BB24CB91FE00DE9301 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */; };
 		E874C8BD24CBB8AD00DE9301 /* NSImage + tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */; };
+		E8800FD724E313B200CA3853 /* TimerViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8800FD624E313B200CA3853 /* TimerViewContoller.swift */; };
+		E8800FDB24E33BB700CA3853 /* Futura Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E8800FDA24E33BB700CA3853 /* Futura Condensed Bold.otf */; };
+		E8800FDC24E33BB700CA3853 /* Futura Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E8800FDA24E33BB700CA3853 /* Futura Condensed Bold.otf */; };
+		E8800FDD24E33BB700CA3853 /* Futura Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E8800FDA24E33BB700CA3853 /* Futura Condensed Bold.otf */; };
+		E8800FDF24E3589500CA3853 /* TimerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8800FDE24E3589500CA3853 /* TimerControlsViewController.swift */; };
+		E8800FE024E3589500CA3853 /* TimerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8800FDE24E3589500CA3853 /* TimerControlsViewController.swift */; };
+		E8800FE124E3589500CA3853 /* TimerControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8800FDE24E3589500CA3853 /* TimerControlsViewController.swift */; };
 		E8D7553C24D04E84001DFE45 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7553B24D04E84001DFE45 /* Bookmarks.swift */; };
 		E8F4313B24CCB5F30063232D /* MenuStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4313A24CCB5F30063232D /* MenuStore.swift */; };
 		E8F4313D24CCB8A20063232D /* AddItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */; };
@@ -64,6 +71,9 @@
 		E874C8A824CB64BA00DE9301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
 		E874C8BC24CBB8AD00DE9301 /* NSImage + tweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage + tweets.swift"; sourceTree = "<group>"; };
+		E8800FD624E313B200CA3853 /* TimerViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewContoller.swift; sourceTree = "<group>"; };
+		E8800FDA24E33BB700CA3853 /* Futura Condensed Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Condensed Bold.otf"; sourceTree = "<group>"; };
+		E8800FDE24E3589500CA3853 /* TimerControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControlsViewController.swift; sourceTree = "<group>"; };
 		E8D7553B24D04E84001DFE45 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		E8F4313A24CCB5F30063232D /* MenuStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStore.swift; sourceTree = "<group>"; };
 		E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +137,8 @@
 				E874C88A24CB64B800DE9301 /* DisplayViewController.swift */,
 				E874C8BA24CB91FE00DE9301 /* ControlsViewController.swift */,
 				E8F4313C24CCB8A20063232D /* AddItemsViewController.swift */,
+				E8800FD624E313B200CA3853 /* TimerViewContoller.swift */,
+				E8800FDE24E3589500CA3853 /* TimerControlsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -181,6 +193,7 @@
 				E874C88C24CB64B900DE9301 /* Assets.xcassets */,
 				E874C89124CB64BA00DE9301 /* Info.plist */,
 				E874C89224CB64BA00DE9301 /* Celebritweet.entitlements */,
+				E8800FDA24E33BB700CA3853 /* Futura Condensed Bold.otf */,
 			);
 			path = Celebritweet;
 			sourceTree = "<group>";
@@ -313,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8800FDB24E33BB700CA3853 /* Futura Condensed Bold.otf in Resources */,
 				E874C88D24CB64B900DE9301 /* Assets.xcassets in Resources */,
 				E874C89024CB64B900DE9301 /* Main.storyboard in Resources */,
 			);
@@ -322,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8800FDC24E33BB700CA3853 /* Futura Condensed Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8800FDD24E33BB700CA3853 /* Futura Condensed Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +476,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8F4313B24CCB5F30063232D /* MenuStore.swift in Sources */,
+				E8800FD724E313B200CA3853 /* TimerViewContoller.swift in Sources */,
 				E8D7553C24D04E84001DFE45 /* Bookmarks.swift in Sources */,
+				E8800FDF24E3589500CA3853 /* TimerControlsViewController.swift in Sources */,
 				E8F4313D24CCB8A20063232D /* AddItemsViewController.swift in Sources */,
 				E874C88B24CB64B800DE9301 /* DisplayViewController.swift in Sources */,
 				E874C8BB24CB91FE00DE9301 /* ControlsViewController.swift in Sources */,
@@ -473,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8800FE024E3589500CA3853 /* TimerControlsViewController.swift in Sources */,
 				E874C89C24CB64BA00DE9301 /* CelebritweetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8800FE124E3589500CA3853 /* TimerControlsViewController.swift in Sources */,
 				E874C8A724CB64BA00DE9301 /* CelebritweetUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

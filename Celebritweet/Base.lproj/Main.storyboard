@@ -641,6 +641,17 @@
                                                 <action selector="controlWindowSelected:" target="Ady-hI-5gd" id="6gW-D8-n7P"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Timer" keyEquivalent="T" id="VeN-f5-EAW" userLabel="Timer">
+                                            <connections>
+                                                <action selector="timerWindowSelected:" target="Ady-hI-5gd" id="Umu-5O-0MO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="TimerControls" keyEquivalent="c" id="8Nb-ME-UlP">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES"/>
+                                            <connections>
+                                                <action selector="openControls:" target="Ady-hI-5gd" id="zZv-3P-51g"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
@@ -743,6 +754,8 @@
                         <outlet property="tweetOne" destination="iKE-DT-RZO" id="pIY-yz-Eda"/>
                         <outlet property="tweetTwo" destination="H8b-f8-S2Z" id="hqA-Zw-FjT"/>
                         <segue destination="9oV-2f-noz" kind="show" identifier="openControls" id="t3F-QI-OzE"/>
+                        <segue destination="BN1-gj-nR0" kind="show" identifier="TimerSegue" id="5eq-Bv-Y8o"/>
+                        <segue destination="KJ8-mP-mtE" kind="show" identifier="TimerControls" id="K8d-VM-W6m"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1001,8 +1014,139 @@
             </objects>
             <point key="canvasLocation" x="97" y="1935"/>
         </scene>
+        <!--TimerViewController-->
+        <scene sceneID="MM9-2m-Ool">
+            <objects>
+                <viewController title="TimerViewController" id="BN1-gj-nR0" customClass="TimerViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="6MZ-q2-5la">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="400"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cb-t3-Vzf">
+                                <rect key="frame" x="384" y="-47" width="479" height="255"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aTl-Vf-T2d">
+                                        <rect key="frame" x="-2" y="0.0" width="483" height="255"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="yps-i9-BBQ">
+                                            <font key="font" size="200" name="Futura-CondensedExtraBold"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="aTl-Vf-T2d" id="cqI-nF-0dP"/>
+                        <outlet property="timerStackView" destination="9cb-t3-Vzf" id="rKF-qp-wQf"/>
+                        <segue destination="KJ8-mP-mtE" kind="show" identifier="ShowTimerContols" id="l8q-H1-ie2"/>
+                    </connections>
+                </viewController>
+                <customObject id="mf0-ag-NTk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104" y="2363"/>
+        </scene>
+        <!--Timer Controls-->
+        <scene sceneID="Ppz-1F-CR0">
+            <objects>
+                <viewController title="Timer Controls" storyboardIdentifier="TimerControls" id="KJ8-mP-mtE" customClass="TimerControlsViewController" customModule="Celebritweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Jx7-r9-kFk">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="44" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ju3-er-NBG">
+                                <rect key="frame" x="75" y="107" width="300" height="86"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCk-6g-Pwt">
+                                        <rect key="frame" x="102" y="65" width="96" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Fa3-7w-ej2">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="61" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nct-ma-1fG">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Sh-0Y-Ql6">
+                                                <rect key="frame" x="-6" y="-7" width="70" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UMn-rt-cm3">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="startButtonClicked:" target="KJ8-mP-mtE" id="WaI-CT-acI"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HfI-AH-xlY">
+                                                <rect key="frame" x="113" y="-7" width="69" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eu5-Qd-VKC">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="stopButtonClicked:" target="KJ8-mP-mtE" id="xuJ-SQ-bcM"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qvW-wm-GXa">
+                                                <rect key="frame" x="231" y="-7" width="75" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="noc-r5-tXM">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="resetButtonClicked:" target="KJ8-mP-mtE" id="tCB-ON-8xx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ju3-er-NBG" firstAttribute="centerX" secondItem="Jx7-r9-kFk" secondAttribute="centerX" id="009-Lz-Ovh"/>
+                            <constraint firstItem="ju3-er-NBG" firstAttribute="centerY" secondItem="Jx7-r9-kFk" secondAttribute="centerY" id="hPi-2s-a7d"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resetButton" destination="qvW-wm-GXa" id="DWz-r3-EH6"/>
+                        <outlet property="setTimeTextField" destination="oCk-6g-Pwt" id="d20-WY-UJr"/>
+                        <outlet property="startButton" destination="3Sh-0Y-Ql6" id="zKF-EJ-cPk"/>
+                        <outlet property="stopButton" destination="HfI-AH-xlY" id="UUt-AG-duW"/>
+                    </connections>
+                </viewController>
+                <customObject id="jQV-lg-uEq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="2814"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qcD-jd-4GQ"/>
+        <segue reference="l8q-H1-ie2"/>
+        <segue reference="t3F-QI-OzE"/>
     </inferredMetricsTieBreakers>
 </document>

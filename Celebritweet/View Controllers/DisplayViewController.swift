@@ -22,7 +22,7 @@ class ViewController: NSViewController, NSImageDelegate  {
         tweetOne.image?.delegate = self
         tweetTwo.image?.delegate = self
         self.view.window?.standardWindowButton(NSWindow.ButtonType.closeButton)!.isHidden = true
-        self.view.window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)!.isHidden = true
+    
     }
     //MARK: Layout View -
     override func viewDidLoad() {
@@ -33,8 +33,8 @@ class ViewController: NSViewController, NSImageDelegate  {
         // Do any additional setup after loading the view.
         
         view.addSubview(imageStackView)
-        imageStackView .addView(tweetOne, in: .center)
-        imageStackView .addView(tweetTwo, in: .center)
+        imageStackView.addView(tweetOne, in: .center)
+        imageStackView.addView(tweetTwo, in: .center)
         
         
         let stackViewTop = imageStackView.topAnchor.constraint(equalTo: view.topAnchor)
@@ -57,16 +57,16 @@ class ViewController: NSViewController, NSImageDelegate  {
         imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         
         
-       
+        
         tweetOne.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         tweetTwo.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         tweetOne.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         tweetTwo.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-       
+        
         tweetOne.image = NSImage(resource: .aoc)
         tweetTwo.image = NSImage(resource: .aoc)
         
-        
+       
     }
     
     @IBAction func controlWindowSelected (_ sender: Any) {
@@ -76,25 +76,43 @@ class ViewController: NSViewController, NSImageDelegate  {
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         
-        
+        switch segue.identifier{
+        case "openControls":
+            
         let destinationVC = segue.destinationController as! ControlsViewController
-
         
         destinationVC.tweetOneObserver.subscribe(onNext: {
             [weak self] (image) in self?.tweetOne.image = image
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         destinationVC.tweetTwoObserver.subscribe(onNext: {
             [weak self] (image) in self?.tweetTwo.image = image
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
+        
+        case "TimerSegue":
+            
+        let destinationVC = segue.destinationController as! TimerViewController
+        
+            //TODO: add anything that needs to be transferred here (probably nothing)
+        
+        
+        default:
+            print("Unknown segue identifier")
+            break
+        }
     }
     func imageDidNotDraw(_ sender: NSImage, in rect: NSRect) -> NSImage? {
         return NSImage(resource: .aoc)
     }
     
     
-   
+    @IBAction func timerWindowSelected (_ sender: Any) {
+        performSegue(withIdentifier: "TimerSegue", sender: sender)
+//        performSegue(withIdentifier: "TimerControls", sender: sender)
+        
+        
+    }
     
 }
 

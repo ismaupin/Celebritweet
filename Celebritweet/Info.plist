@@ -34,5 +34,9 @@
 	<true/>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.entertainment</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CustomFont-Futura Condensed Bold.otf</string>
+	</array>
 </dict>
 </plist>

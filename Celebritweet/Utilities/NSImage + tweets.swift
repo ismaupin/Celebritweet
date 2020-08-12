@@ -22,6 +22,7 @@ enum ImageResource: String {
     case kanye
     case patSajack
     case background
+    case timerBackground
     
     
     
