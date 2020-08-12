@@ -25,7 +25,6 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     
     let timerAmountSubject = BehaviorRelay<Double>(value: 0.00)
     
-    
     //MARK: Methods -
     
     override func viewDidLoad() {
@@ -48,7 +47,6 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
         timerAmountSubject.accept(double)
         startButton.isEnabled = true
     }
-    
     
     @objc func timerFired() {
         timerAmountSubject.accept(timerAmountSubject.value - 0.1)
