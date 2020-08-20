@@ -23,7 +23,7 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     let disposeBag = DisposeBag()
     var appTimer: Timer?
     
-    let timerAmountSubject = BehaviorRelay<Double>(value: 0.00)
+    let timerAmountRelay = BehaviorRelay<Double>(value: 0.00)
     
     //MARK: Methods -
     
@@ -34,7 +34,7 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
         resetButton.isEnabled = false
         setTimeTextField.delegate = self
         
-        timerAmountSubject
+        timerAmountRelay
             .subscribe(
                 onNext:{ self.timer?.timerLabel.stringValue = String(format: "%.1f", $0)
             })
@@ -44,17 +44,18 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         guard let double = Double(setTimeTextField.stringValue) else{ return }
         timer?.timerLabel.textColor = double > 5 ? .white : .red
-        timerAmountSubject.accept(double)
+        timerAmountRelay.accept(double)
         startButton.isEnabled = true
     }
     
     @objc func timerFired() {
-        timerAmountSubject.accept(timerAmountSubject.value - 0.1)
+        timerAmountRelay.accept(timerAmountRelay.value - 0.1)
         
-        timer?.timerLabel.textColor = timerAmountSubject.value <= 5 ? .red : .white
+        timer?.timerLabel.textColor = timerAmountRelay.value <= 5 ? .red : .white
         
-        if timerAmountSubject.value < 0.1 {
+        if timerAmountRelay.value < 0.1 {
             self.appTimer!.invalidate()
+            self.timer?.timerLabel.stringValue = "0.0"
             startButton.isEnabled = false
             stopButton.isEnabled = false
         }
@@ -80,7 +81,7 @@ class TimerControlsViewController: NSViewController, NSTextFieldDelegate {
         guard let double = Double(setTimeTextField.stringValue) else {return}
         // reset timer to time in textbox
         startButton.isEnabled = appTimer!.isValid ? false : true
-        timerAmountSubject.accept(double)
+        timerAmountRelay.accept(double)
         self.timer?.timerLabel.textColor = .white
     }
 }
