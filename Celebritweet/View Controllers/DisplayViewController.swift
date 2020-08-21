@@ -14,6 +14,10 @@ class ViewController: NSViewController, NSImageDelegate  {
     @IBOutlet var imageStackView: NSStackView!
     @IBOutlet var tweetOne: NSImageView!
     @IBOutlet var tweetTwo: NSImageView!
+    var aLabel: NSTextField!
+    var bLabel: NSTextField!
+    var aStackView: NSStackView!
+    var bStackView: NSStackView!
     
     let disposeBag = DisposeBag()
     
@@ -27,15 +31,39 @@ class ViewController: NSViewController, NSImageDelegate  {
     //MARK: Layout View -
     override func viewDidLoad() {
         super.viewDidLoad()
+        aLabel = NSTextField()
+        bLabel = NSTextField()
+        aStackView = NSStackView()
+        bStackView = NSStackView()
         self.view.wantsLayer = true
         let backgroundImage = NSImage(resource: .background)
         self.view.layer!.contents = backgroundImage
         // Do any additional setup after loading the view.
         
         view.addSubview(imageStackView)
-        imageStackView.addView(tweetOne, in: .center)
-        imageStackView.addView(tweetTwo, in: .center)
+        imageStackView.addView(aStackView, in: .center)
+        imageStackView.addView(bStackView, in: .center)
+        imageStackView.orientation = .horizontal
         
+        aStackView.orientation = .vertical
+        aStackView.addView(aLabel, in: .center)
+        aStackView.addView(tweetOne, in: .center)
+        aStackView.spacing = 8
+        
+        bStackView.orientation = .vertical
+        bStackView.addView(bLabel, in: .center)
+        bStackView.addView(tweetTwo, in: .center)
+        bStackView.spacing = 8
+        
+        aLabel.textColor = .white
+        aLabel.font = NSFont(name: "helvetica", size: 40)
+        aLabel.stringValue = "A"
+        aLabel.alignment = .center
+        
+        bLabel.textColor = .white
+        bLabel.font = NSFont(name: "helvetica", size: 40)
+        bLabel.stringValue = "B"
+        bLabel.alignment = .center
         
         let stackViewTop = imageStackView.topAnchor.constraint(equalTo: view.topAnchor)
         let stackViewBottom = imageStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
