@@ -56,11 +56,19 @@ class ViewController: NSViewController, NSImageDelegate  {
         bStackView.spacing = 8
         
         aLabel.textColor = .white
+        aLabel.backgroundColor = .none
+        aLabel.isBezeled = false
+        aLabel.drawsBackground = false
+        aLabel.isEditable = false
         aLabel.font = NSFont(name: "helvetica", size: 40)
         aLabel.stringValue = "A"
         aLabel.alignment = .center
         
         bLabel.textColor = .white
+        bLabel.backgroundColor = .none
+        bLabel.isBezeled = false
+        bLabel.drawsBackground = false
+        bLabel.isEditable = false
         bLabel.font = NSFont(name: "helvetica", size: 40)
         bLabel.stringValue = "B"
         bLabel.alignment = .center
