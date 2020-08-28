@@ -771,24 +771,24 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="37" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CL3-rE-8yY">
-                                <rect key="frame" x="21" y="49" width="408" height="103"/>
+                                <rect key="frame" x="21" y="22" width="408" height="156"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-5V-K0F">
-                                        <rect key="frame" x="0.0" y="58" width="408" height="45"/>
+                                        <rect key="frame" x="0.0" y="58" width="408" height="98"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TV-uL-tj3">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="98"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zFT-am-B6r">
-                                                        <rect key="frame" x="66" y="29" width="69" height="16"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Celebrity 1" id="sJQ-eV-mbp">
+                                                        <rect key="frame" x="94" y="82" width="13" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="A" id="sJQ-eV-mbp">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mFf-55-7Nz">
-                                                        <rect key="frame" x="-2" y="-3" width="205" height="25"/>
+                                                        <rect key="frame" x="-2" y="50" width="205" height="25"/>
                                                         <popUpButtonCell key="cell" type="push" title="AOC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2o2-cC-fea" id="z1Y-pB-n7Z">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -802,33 +802,63 @@
                                                             <action selector="celebOneAction:" target="9oV-2f-noz" id="POl-K7-6bC"/>
                                                         </connections>
                                                     </popUpButton>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tPD-DZ-6Es">
+                                                        <rect key="frame" x="93" y="29" width="14" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="C" id="11a-Bz-d1V">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-vk-6pK">
+                                                        <rect key="frame" x="-2" y="-3" width="205" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="n3l-Va-ecM" id="Jo8-0y-Oif">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <menu key="menu" id="HjW-mn-wiV">
+                                                                <items>
+                                                                    <menuItem title="Item 1" state="on" id="n3l-Va-ecM"/>
+                                                                    <menuItem title="Item 2" id="1KC-eN-wjS"/>
+                                                                    <menuItem title="Item 3" id="NBo-hs-BRm"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="celebThreeAction:" target="9oV-2f-noz" id="qYd-NQ-OjG"/>
+                                                        </connections>
+                                                    </popUpButton>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Ga1-NS-cp1"/>
                                                     <constraint firstItem="mFf-55-7Nz" firstAttribute="width" secondItem="3TV-uL-tj3" secondAttribute="width" id="KXX-j7-GfE"/>
+                                                    <constraint firstItem="mOb-vk-6pK" firstAttribute="width" secondItem="3TV-uL-tj3" secondAttribute="width" id="bUu-0e-JAg"/>
                                                 </constraints>
                                                 <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
                                                 </visibilityPriorities>
                                                 <customSpacing>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-gE-cdr">
-                                                <rect key="frame" x="208" y="0.0" width="200" height="45"/>
+                                                <rect key="frame" x="208" y="0.0" width="200" height="98"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wl1-kI-LDa">
-                                                        <rect key="frame" x="65" y="29" width="71" height="16"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Celebrity 2" id="gbA-JC-qIm">
+                                                        <rect key="frame" x="94" y="82" width="13" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="B" id="gbA-JC-qIm">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Id2-yJ-kSm">
-                                                        <rect key="frame" x="-2" y="-3" width="205" height="25"/>
+                                                        <rect key="frame" x="-2" y="50" width="205" height="25"/>
                                                         <popUpButtonCell key="cell" type="push" title="AOC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fMw-Xd-OZE" id="Q48-l4-XRQ">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -839,18 +869,48 @@
                                                             </menu>
                                                         </popUpButtonCell>
                                                         <connections>
-                                                            <action selector="celebTwoAction:" target="9oV-2f-noz" id="hKR-Eb-XIK"/>
+                                                            <action selector="celebTwoAction:" target="9oV-2f-noz" id="ZY8-rZ-Mpz"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BK6-40-nh4">
+                                                        <rect key="frame" x="93" y="29" width="14" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="D" id="d1a-qw-TUk">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TVg-k0-Efm">
+                                                        <rect key="frame" x="-2" y="-3" width="205" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="t6n-Rc-2zL" id="y85-eN-iR9">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <menu key="menu" id="iYZ-0W-UQR">
+                                                                <items>
+                                                                    <menuItem title="Item 1" state="on" id="t6n-Rc-2zL"/>
+                                                                    <menuItem title="Item 2" id="NZG-Z4-Vz0"/>
+                                                                    <menuItem title="Item 3" id="HXB-4o-Etb"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="celebFourAction:" target="9oV-2f-noz" id="pnj-V0-nP6"/>
                                                         </connections>
                                                     </popUpButton>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="Id2-yJ-kSm" firstAttribute="width" secondItem="b2B-gE-cdr" secondAttribute="width" id="37Z-KQ-fzV"/>
+                                                    <constraint firstItem="TVg-k0-Efm" firstAttribute="width" secondItem="b2B-gE-cdr" secondAttribute="width" id="D8h-We-mh8"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
                                                 </visibilityPriorities>
                                                 <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
@@ -895,7 +955,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="celebrityFourMenu" destination="TVg-k0-Efm" id="TtR-hq-8Vh"/>
                         <outlet property="celebrityOneMenu" destination="mFf-55-7Nz" id="rBO-UR-Ycl"/>
+                        <outlet property="celebrityThreeMenu" destination="mOb-vk-6pK" id="5Ms-go-EJ4"/>
                         <outlet property="celebrityTwoMenu" destination="Id2-yJ-kSm" id="WMd-hR-WKK"/>
                         <segue destination="Pb4-c2-1B6" kind="sheet" identifier="addItems" id="QIh-yV-EJP"/>
                     </connections>

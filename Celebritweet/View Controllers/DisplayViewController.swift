@@ -14,8 +14,12 @@ class ViewController: NSViewController, NSImageDelegate  {
     @IBOutlet var imageStackView: NSStackView!
     @IBOutlet var tweetOne: NSImageView!
     @IBOutlet var tweetTwo: NSImageView!
+    var tweetThree: NSImageView!
+    var tweetFour: NSImageView!
     var aLabel: NSTextField!
     var bLabel: NSTextField!
+    var cLabel: NSTextField!
+    var dLabel: NSTextField!
     var aStackView: NSStackView!
     var bStackView: NSStackView!
     
@@ -33,8 +37,12 @@ class ViewController: NSViewController, NSImageDelegate  {
         super.viewDidLoad()
         aLabel = NSTextField()
         bLabel = NSTextField()
+        cLabel = NSTextField()
+        dLabel = NSTextField()
         aStackView = NSStackView()
         bStackView = NSStackView()
+        tweetThree = NSImageView()
+        tweetFour = NSImageView()
         self.view.wantsLayer = true
         let backgroundImage = NSImage(resource: .background)
         self.view.layer!.contents = backgroundImage
@@ -48,11 +56,15 @@ class ViewController: NSViewController, NSImageDelegate  {
         aStackView.orientation = .vertical
         aStackView.addView(aLabel, in: .center)
         aStackView.addView(tweetOne, in: .center)
+        aStackView.addView(cLabel, in: .center)
+        aStackView.addView(tweetThree, in: .center)
         aStackView.spacing = 8
         
         bStackView.orientation = .vertical
         bStackView.addView(bLabel, in: .center)
         bStackView.addView(tweetTwo, in: .center)
+        bStackView.addView(dLabel, in: .center)
+        bStackView.addView(tweetFour, in: .center)
         bStackView.spacing = 8
         
         aLabel.textColor = .white
@@ -73,6 +85,26 @@ class ViewController: NSViewController, NSImageDelegate  {
         bLabel.stringValue = "B"
         bLabel.alignment = .center
         
+        
+        cLabel.textColor = .white
+        cLabel.backgroundColor = .none
+        cLabel.isBezeled = false
+        cLabel.drawsBackground = false
+        cLabel.isEditable = false
+        cLabel.font = NSFont(name: "helvetica", size: 40)
+        cLabel.stringValue = "C"
+        cLabel.alignment = .center
+        
+        
+        dLabel.textColor = .white
+        dLabel.backgroundColor = .none
+        dLabel.isBezeled = false
+        dLabel.drawsBackground = false
+        dLabel.isEditable = false
+        dLabel.font = NSFont(name: "helvetica", size: 40)
+        dLabel.stringValue = "D"
+        aLabel.alignment = .center
+        
         let stackViewTop = imageStackView.topAnchor.constraint(equalTo: view.topAnchor)
         let stackViewBottom = imageStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         let stackViewCenter = imageStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -89,16 +121,37 @@ class ViewController: NSViewController, NSImageDelegate  {
         imageStackView.distribution = .fillEqually
         imageStackView.edgeInsets.left = 8
         imageStackView.edgeInsets.right = 8
-        imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+//        imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//        imageStackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         
         tweetOne.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         tweetTwo.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         tweetOne.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         tweetTwo.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        tweetThree.setContentCompressionResistancePriority( .defaultLow, for: .horizontal)
+        tweetThree.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        tweetFour.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        tweetFour.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+
+        let tweetThreeWidth = tweetThree.heightAnchor.constraint(equalTo: tweetOne.heightAnchor)
+        let tweetThreeHeight = tweetThree.widthAnchor.constraint(equalTo: tweetOne.widthAnchor)
+        let tweetFourWidth = tweetFour.heightAnchor.constraint(equalTo: tweetTwo.heightAnchor)
+        let tweetFourHeight = tweetFour.widthAnchor.constraint(equalTo: tweetTwo.widthAnchor)
+        
+        tweetThreeWidth.isActive = true
+        tweetThreeHeight.isActive = true
+        tweetFourWidth.isActive = true
+        tweetFourHeight.isActive = true
+        
+//        aStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//        aStackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+//        bStackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//        bStackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         
         tweetOne.image = NSImage(resource: .aoc)
         tweetTwo.image = NSImage(resource: .aoc)
+        tweetThree.image = NSImage(resource: .kanye)
+        tweetFour.image = NSImage(resource: .kermit)
     }
     
     @IBAction func controlWindowSelected (_ sender: Any) {
@@ -120,6 +173,13 @@ class ViewController: NSViewController, NSImageDelegate  {
         destinationVC.tweetTwoObserver.subscribe(onNext: {
             [weak self] (image) in self?.tweetTwo.image = image
         }).disposed(by: disposeBag)
+            
+        destinationVC.tweetThreeObserver.subscribe(onNext: {
+            [weak self] (image) in self?.tweetThree.image = image
+        })
+        destinationVC.tweetFourObserver.subscribe(onNext: {
+            [weak self] (image) in self?.tweetFour.image = image
+        })
         
         default:
             break

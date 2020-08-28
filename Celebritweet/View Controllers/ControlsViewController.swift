@@ -14,16 +14,28 @@ class ControlsViewController: NSViewController {
 //MARK: Properties -
     @IBOutlet var celebrityOneMenu: NSPopUpButton!
     @IBOutlet var celebrityTwoMenu: NSPopUpButton!
+    @IBOutlet weak var celebrityThreeMenu: NSPopUpButton!
+    @IBOutlet weak var celebrityFourMenu: NSPopUpButton!
     
     var store = MenuStore()
 
     let tweetOneSequence = PublishSubject<NSImage>()
-    let tweetTwoSquence = PublishSubject<NSImage>()
+    let tweetTwoSequence = PublishSubject<NSImage>()
+    let tweetThreeSequence = PublishSubject<NSImage>()
+    let tweetFourSequence = PublishSubject<NSImage>()
     var tweetOneObserver:Observable<NSImage> {
         return tweetOneSequence.asObservable()
     }
     var tweetTwoObserver:Observable<NSImage> {
-        return tweetTwoSquence.asObservable()
+        return tweetTwoSequence.asObservable()
+    }
+    
+    var tweetThreeObserver:Observable<NSImage> {
+        return tweetThreeSequence.asObservable()
+    }
+    
+    var tweetFourObserver:Observable<NSImage> {
+        return tweetFourSequence.asObservable()
     }
     
 // MARK: Methods -
@@ -33,6 +45,8 @@ class ControlsViewController: NSViewController {
         // Do view setup here.
         celebrityOneMenu.removeAllItems()
         celebrityTwoMenu.removeAllItems()
+        celebrityThreeMenu.removeAllItems()
+        celebrityFourMenu.removeAllItems()
     }
     
     override func viewWillAppear() {
@@ -43,6 +57,8 @@ class ControlsViewController: NSViewController {
         }
         celebrityOneMenu.addItems(withTitles: store.menuItems)
         celebrityTwoMenu.addItems(withTitles: store.menuItems)
+        celebrityThreeMenu.addItems(withTitles: store.menuItems)
+        celebrityFourMenu.addItems(withTitles: store.menuItems)
     }
     
 // MARK: Action Methods
@@ -74,12 +90,47 @@ class ControlsViewController: NSViewController {
         guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
         
         if tweetImage.isValid {
-            tweetTwoSquence.on(.next(tweetImage))
+            tweetTwoSequence.on(.next(tweetImage))
         }
         else { print ("image is invalid")}
     }
+ 
+    @IBAction func celebThreeAction(_ sender: NSPopUpButton) {
+        
+        // make sure the image path is an image and set the celebTweetTwo to display it
+        guard let item = sender.selectedItem else{return}
+        let itemTitle = item.title
+        let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
+        guard let data = bookmarkData else {return}
+        let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
+        guard let imageURL = bookmarkURL else{return}
+        guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
+        
+        if tweetImage.isValid {
+            tweetThreeSequence.on(.next(tweetImage))
+        }
+        else { print ("image is invalid")}
+        
+    }
     
-// MARK: New Window Methods
+    @IBAction func celebFourAction(_ sender: NSPopUpButton) {
+        
+               // make sure the image path is an image and set the celebTweetTwo to display it
+               guard let item = sender.selectedItem else{return}
+               let itemTitle = item.title
+               let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
+               guard let data = bookmarkData else {return}
+               let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
+               guard let imageURL = bookmarkURL else{return}
+               guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
+               
+               if tweetImage.isValid {
+                   tweetFourSequence.on(.next(tweetImage))
+               }
+               else { print ("image is invalid")}
+        
+    }
+    // MARK: New Window Methods
     
     @IBAction func addItemButtonClicked(_ sender: NSButton) {
         let sheet = storyboard?.instantiateController(withIdentifier: "AddItemsViewController") as! AddItemsViewController
