@@ -93,4 +93,15 @@ class AddItemsViewController: NSViewController, NSTextFieldDelegate {
 
         
     }
+    
+    @IBAction func deleteAllTweets(_ sender: NSButton) {
+        store.imageURLs.removeAll()
+        store.menuItems.removeAll()
+        store.saveChanges()
+        parent?.viewDidLoad()
+        parent?.viewDidAppear()
+        dismiss(self)
+        
+    }
+    
 }

@@ -975,10 +975,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yb4-aQ-puz">
-                                <rect key="frame" x="131" y="93" width="261" height="168"/>
+                                <rect key="frame" x="131" y="79" width="261" height="197"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yPz-oG-q2G">
-                                        <rect key="frame" x="77" y="147" width="108" height="21"/>
+                                        <rect key="frame" x="77" y="176" width="108" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Celebrity Name" drawsBackground="YES" id="gB1-o1-evq">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -986,7 +986,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wJp-gf-Y9t">
-                                        <rect key="frame" x="79" y="99" width="103" height="32"/>
+                                        <rect key="frame" x="79" y="128" width="103" height="32"/>
                                         <buttonCell key="cell" type="push" title="Select FIle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2tQ-dh-bUO">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -996,7 +996,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7VK-kv-dhN">
-                                        <rect key="frame" x="96" y="58" width="70" height="32"/>
+                                        <rect key="frame" x="96" y="87" width="70" height="32"/>
                                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lRP-uh-0Xj">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1006,10 +1006,10 @@
                                         </connections>
                                     </button>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-Xo-Gar">
-                                        <rect key="frame" x="91" y="0.0" width="80" height="45"/>
+                                        <rect key="frame" x="64" y="0.0" width="133" height="74"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jGp-xG-OaP" userLabel="Delete Tweet">
-                                                <rect key="frame" x="-2" y="29" width="84" height="16"/>
+                                                <rect key="frame" x="25" y="58" width="84" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Delete Tweet" id="OX5-wv-hJb">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1017,7 +1017,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-iU-89w">
-                                                <rect key="frame" x="2" y="-3" width="77" height="25"/>
+                                                <rect key="frame" x="29" y="26" width="77" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Prl-IZ-Erq" id="urL-0p-Zch">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1033,12 +1033,24 @@
                                                     </connections>
                                                 </popUpButtonCell>
                                             </popUpButton>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J9e-Li-Phm">
+                                                <rect key="frame" x="-6" y="-7" width="145" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Delete All Tweets" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SeK-az-P3h">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="deleteAllTweets:" target="Pb4-c2-1B6" id="EDd-R0-zpv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>

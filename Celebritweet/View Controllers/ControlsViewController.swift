@@ -11,14 +11,14 @@ import RxSwift
 
 class ControlsViewController: NSViewController {
     
-//MARK: Properties -
+    //MARK: Properties -
     @IBOutlet var celebrityOneMenu: NSPopUpButton!
     @IBOutlet var celebrityTwoMenu: NSPopUpButton!
     @IBOutlet weak var celebrityThreeMenu: NSPopUpButton!
     @IBOutlet weak var celebrityFourMenu: NSPopUpButton!
     
     var store = MenuStore()
-
+    
     let tweetOneSequence = PublishSubject<NSImage>()
     let tweetTwoSequence = PublishSubject<NSImage>()
     let tweetThreeSequence = PublishSubject<NSImage>()
@@ -38,8 +38,8 @@ class ControlsViewController: NSViewController {
         return tweetFourSequence.asObservable()
     }
     
-// MARK: Methods -
-// MARK: View Enterance Methods
+    // MARK: Methods -
+    // MARK: View Enterance Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -61,73 +61,48 @@ class ControlsViewController: NSViewController {
         celebrityFourMenu.addItems(withTitles: store.menuItems)
     }
     
-// MARK: Action Methods
+    // MARK: Action Methods
     
     @IBAction func celebOneAction(_ sender: NSPopUpButton) {
         // make sure the image path is an image and set the celebTweetOne to display it
         guard let item = sender.selectedItem else{return}
-        let itemTitle = item.title
-        let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
-        guard let data = bookmarkData else{return}
-        let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
-        guard let imageURL = bookmarkURL else{return}
-        guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
-       
-        if tweetImage.isValid {
-            tweetOneSequence.on(.next (tweetImage))
-        }
-        else { print ("image is invalid")}
+        getTweetImage(item: item, sequence: tweetOneSequence)
     }
     
     @IBAction func celebTwoAction(_ sender: NSPopUpButton) {
         // make sure the image path is an image and set the celebTweetTwo to display it
         guard let item = sender.selectedItem else{return}
-        let itemTitle = item.title
-        let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
-        guard let data = bookmarkData else {return}
-        let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
-        guard let imageURL = bookmarkURL else{return}
-        guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
-        
-        if tweetImage.isValid {
-            tweetTwoSequence.on(.next(tweetImage))
-        }
-        else { print ("image is invalid")}
+        getTweetImage(item: item, sequence: tweetTwoSequence)
     }
- 
     @IBAction func celebThreeAction(_ sender: NSPopUpButton) {
         
         // make sure the image path is an image and set the celebTweetTwo to display it
         guard let item = sender.selectedItem else{return}
-        let itemTitle = item.title
-        let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
-        guard let data = bookmarkData else {return}
-        let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
-        guard let imageURL = bookmarkURL else{return}
-        guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
-        
-        if tweetImage.isValid {
-            tweetThreeSequence.on(.next(tweetImage))
-        }
-        else { print ("image is invalid")}
+        getTweetImage(item: item, sequence: tweetThreeSequence)
         
     }
     
     @IBAction func celebFourAction(_ sender: NSPopUpButton) {
         
-               // make sure the image path is an image and set the celebTweetTwo to display it
-               guard let item = sender.selectedItem else{return}
-               let itemTitle = item.title
-               let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
-               guard let data = bookmarkData else {return}
-               let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
-               guard let imageURL = bookmarkURL else{return}
-               guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
-               
-               if tweetImage.isValid {
-                   tweetFourSequence.on(.next(tweetImage))
-               }
-               else { print ("image is invalid")}
+        // make sure the image path is an image and set the celebTweetTwo to display it
+        guard let item = sender.selectedItem else{return}
+        getTweetImage(item: item, sequence: tweetFourSequence)
+        
+    }
+    
+    func getTweetImage(item: NSMenuItem, sequence: PublishSubject<NSImage>) {
+        
+        let itemTitle = item.title
+        let bookmarkData = UserDefaults.standard.data(forKey: itemTitle)
+        guard let data = bookmarkData else {return}
+        let bookmarkURL = restoreFileAccess(withBookmarkdata: data, name: itemTitle)
+        guard let imageURL = bookmarkURL else{return}
+        guard let tweetImage = NSImage(contentsOf: imageURL) else {return}
+        
+        if tweetImage.isValid {
+            sequence.on(.next(tweetImage))
+        }
+        else { print ("image is invalid")}
         
     }
     // MARK: New Window Methods
@@ -138,10 +113,10 @@ class ControlsViewController: NSViewController {
         sheet.store = store
         self.addChild(sheet)
         self.presentAsSheet(sheet)
-
+        
     }
     
-// MARK: Restore Access to Bookmarked Files (files outside of the sandbox)
+    // MARK: Restore Access to Bookmarked Files (files outside of the sandbox)
     
     private func restoreFileAccess(withBookmarkdata: Data, name: String)->URL?{
         do {
